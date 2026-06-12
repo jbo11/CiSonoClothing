@@ -42,14 +42,90 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 1.6rem 4rem;
-  background: var(--cisono-retro-bg);
+  isolation: isolate;
+  background:
+    linear-gradient(180deg, rgba(7, 7, 7, 0.3), rgba(7, 7, 7, 0.88)),
+    var(--retro-hero-bg, none),
+    var(--cisono-retro-bg);
+  background-position: center;
+  background-size: cover;
   color: var(--cisono-retro-orange);
   transition: opacity 600ms ease, visibility 600ms ease;
+}
+
+.cisono-retro__loader::before,
+.cisono-retro__loader::after {
+  content: "";
+  position: absolute;
+  left: 4rem;
+  right: 4rem;
+  height: 1.8rem;
+  z-index: 1;
+  border-color: var(--cisono-retro-line);
+  pointer-events: none;
+}
+
+.cisono-retro__loader::before {
+  top: 2.8rem;
+  border-top: 0.1rem solid var(--cisono-retro-line);
+  clip-path: polygon(0 0, 37% 0, 38% 70%, 62% 70%, 63% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.cisono-retro__loader::after {
+  bottom: 2.8rem;
+  border-bottom: 0.1rem solid var(--cisono-retro-line);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 63% 100%, 62% 30%, 38% 30%, 37% 100%, 0 100%);
+}
+
+.cisono-retro__loader > * {
+  position: relative;
+  z-index: 2;
 }
 
 .cisono-retro.is-loaded .cisono-retro__loader {
   opacity: 0;
   visibility: hidden;
+}
+
+.cisono-retro__loader-title {
+  position: absolute;
+  left: -6vw;
+  top: 39%;
+  z-index: 1;
+  width: max-content;
+  color: rgba(243, 237, 216, 0.76);
+  font-family: Impact, "Arial Black", Arial, sans-serif;
+  font-size: clamp(8rem, 14vw, 20rem);
+  line-height: 0.78;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 2rem rgba(243, 237, 216, 0.34);
+  animation: cisono-loader-drift 8s linear infinite;
+}
+
+.cisono-retro__sound-tab,
+.cisono-retro__system-tab {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.9rem 3.6rem;
+  border: 0.1rem solid rgba(253, 138, 70, 0.38);
+  background: rgba(65, 31, 20, 0.82);
+  color: var(--cisono-retro-cream);
+  font-size: 1.1rem;
+  line-height: 1;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+}
+
+.cisono-retro__sound-tab {
+  top: 1.6rem;
+}
+
+.cisono-retro__system-tab {
+  bottom: 0;
 }
 
 .cisono-retro__hud,
@@ -92,6 +168,7 @@
   padding: 2rem;
   color: var(--cisono-retro-cream);
   box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
+  animation: cisono-panel-pulse 2.6s steps(2, end) infinite;
 }
 
 .cisono-retro__loader-core p {
@@ -153,9 +230,11 @@
   isolation: isolate;
   min-height: calc(100vh - 6rem);
   border: 0.1rem solid rgba(253, 138, 70, 0.35);
+  border-radius: 0 0 2.4rem 2.4rem;
   background-image: var(--retro-hero-bg);
   background-position: center;
   background-size: cover;
+  clip-path: polygon(3.5rem 0, calc(50% - 10rem) 0, calc(50% - 8.8rem) 3.4rem, calc(50% + 8.8rem) 3.4rem, calc(50% + 10rem) 0, calc(100% - 3.5rem) 0, 100% 3.5rem, 100% calc(100% - 3.5rem), calc(100% - 3.5rem) 100%, calc(50% + 8rem) 100%, calc(50% + 7rem) calc(100% - 3.2rem), calc(50% - 7rem) calc(100% - 3.2rem), calc(50% - 8rem) 100%, 3.5rem 100%, 0 calc(100% - 3.5rem), 0 3.5rem);
 }
 
 .cisono-retro__hero::before,
@@ -167,10 +246,11 @@
 }
 
 .cisono-retro__hero::before {
-  z-index: -1;
+  z-index: 0;
   background:
-    radial-gradient(circle at 50% 45%, rgba(243, 237, 216, 0.1), transparent 34%),
-    linear-gradient(180deg, rgba(7, 7, 7, 0.2), rgba(7, 7, 7, 0.76));
+    radial-gradient(circle at 72% 24%, rgba(253, 138, 70, 0.2), transparent 28%),
+    linear-gradient(90deg, rgba(7, 7, 7, 0.58), rgba(7, 7, 7, 0.08) 45%, rgba(7, 7, 7, 0.58)),
+    linear-gradient(180deg, rgba(7, 7, 7, 0.12), rgba(7, 7, 7, 0.82));
 }
 
 .cisono-retro__hero::after {
@@ -182,9 +262,21 @@
   mix-blend-mode: multiply;
 }
 
-.cisono-retro__hero-panel {
+.cisono-retro__hero-status {
   position: absolute;
   top: 7rem;
+  left: 4rem;
+  z-index: 3;
+  padding: 1rem 1.4rem;
+  border: 0.1rem solid rgba(243, 237, 216, 0.42);
+  color: var(--cisono-retro-cream);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.cisono-retro__hero-panel {
+  position: absolute;
+  top: 12rem;
   left: 4rem;
   z-index: 3;
   width: min(42rem, calc(100% - 8rem));
@@ -211,9 +303,9 @@
 
 .cisono-retro__hero-copy {
   position: absolute;
-  left: -4vw;
+  left: 5vw;
   right: -4vw;
-  bottom: 28%;
+  bottom: 27%;
   z-index: 2;
 }
 
@@ -222,18 +314,21 @@
   max-width: none;
   color: rgba(243, 237, 216, 0.94);
   font-family: Impact, "Arial Black", Arial, sans-serif;
-  font-size: clamp(7rem, 14vw, 21rem);
+  font-size: clamp(8rem, 14.5vw, 22rem);
   line-height: 0.78;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   text-transform: uppercase;
   white-space: nowrap;
   text-shadow: 0 0 2rem rgba(243, 237, 216, 0.42);
-  animation: cisono-glitch 3.6s steps(2, end) infinite;
+  animation: cisono-glitch 3.6s steps(2, end) infinite, cisono-title-drift 11s ease-in-out infinite alternate;
 }
 
 .cisono-retro__hero-note {
-  max-width: 40rem;
-  margin-left: 8vw !important;
+  max-width: 54rem;
+  margin-left: 0 !important;
+  font-size: clamp(1.4rem, 1.4vw, 2rem) !important;
+  line-height: 1.15;
+  text-transform: none !important;
 }
 
 .cisono-retro__code {
@@ -253,6 +348,31 @@
   border: 0.1rem solid rgba(243, 237, 216, 0.6);
   background: rgba(7, 7, 7, 0.28);
   color: var(--cisono-retro-cream);
+  backdrop-filter: blur(0.6rem);
+}
+
+.cisono-retro__code--hero::before,
+.cisono-retro__code--hero::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-color: var(--cisono-retro-cream);
+  opacity: 0.75;
+}
+
+.cisono-retro__code--hero::before {
+  left: -0.4rem;
+  bottom: -0.4rem;
+  border-left: 0.1rem solid;
+  border-bottom: 0.1rem solid;
+}
+
+.cisono-retro__code--hero::after {
+  right: -0.4rem;
+  top: -0.4rem;
+  border-right: 0.1rem solid;
+  border-top: 0.1rem solid;
 }
 
 .cisono-retro__image-stack {
@@ -291,13 +411,15 @@
 }
 
 .cisono-retro__manifesto {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(26rem, 0.9fr) minmax(18rem, 0.42fr);
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
+  min-height: 72rem;
   padding: 10rem 0;
   border-top: 0.1rem solid var(--cisono-retro-line);
-  text-align: center;
+  text-align: left;
 }
 
 .cisono-retro__manifesto span,
@@ -306,7 +428,7 @@
 }
 
 .cisono-retro__manifesto h2 {
-  max-width: 16ch;
+  max-width: 13ch;
   margin: 0;
   font-size: clamp(4rem, 7vw, 10rem);
   line-height: 0.82;
@@ -314,10 +436,85 @@
 }
 
 .cisono-retro__manifesto p {
-  max-width: 72rem;
+  max-width: 56rem;
   margin: 0;
-  font-size: clamp(1.8rem, 2.4vw, 3.2rem);
-  line-height: 1.02;
+  color: rgba(243, 237, 216, 0.8);
+  font-size: clamp(1.6rem, 1.6vw, 2.4rem);
+  line-height: 1.18;
+}
+
+.cisono-retro__story-copy {
+  display: grid;
+  gap: 2rem;
+}
+
+.cisono-retro__story-orbit {
+  position: relative;
+  width: min(46rem, 100%);
+  aspect-ratio: 1;
+  justify-self: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(243, 237, 216, 0.9) 0 0.4rem, transparent 0.5rem),
+    radial-gradient(circle at 50% 50%, rgba(253, 138, 70, 0.24), transparent 34%),
+    repeating-conic-gradient(from 0deg, rgba(253, 138, 70, 0.78) 0 2deg, transparent 2deg 14deg);
+  filter: drop-shadow(0 0 3rem rgba(253, 138, 70, 0.22));
+  animation: cisono-orbit 9s linear infinite;
+}
+
+.cisono-retro__story-orbit::before,
+.cisono-retro__story-orbit::after,
+.cisono-retro__story-orbit span {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 0.1rem solid rgba(243, 237, 216, 0.48);
+  border-radius: 50%;
+}
+
+.cisono-retro__story-orbit::after {
+  inset: 28%;
+  border-color: rgba(253, 138, 70, 0.7);
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 68%);
+  animation: cisono-orbit 5s linear infinite reverse;
+}
+
+.cisono-retro__story-orbit span:nth-child(1) {
+  inset: 0 18%;
+  border-radius: 44% 56% 52% 48%;
+  transform: rotate(32deg);
+}
+
+.cisono-retro__story-orbit span:nth-child(2) {
+  inset: 18% 0;
+  border-color: rgba(253, 138, 70, 0.38);
+  transform: rotate(-22deg);
+}
+
+.cisono-retro__story-orbit span:nth-child(3) {
+  inset: 42%;
+  background: var(--cisono-retro-cream);
+  box-shadow: 0 0 2rem rgba(243, 237, 216, 0.55);
+}
+
+.cisono-retro__story-card {
+  align-self: end;
+  display: grid;
+  gap: 1rem;
+  padding: 1.6rem;
+  border: 0.1rem solid var(--cisono-retro-line);
+  background: rgba(243, 237, 216, 0.04);
+  color: var(--cisono-retro-cream);
+  text-transform: uppercase;
+}
+
+.cisono-retro__story-card strong {
+  font-size: 1.4rem;
+  line-height: 1.1;
+}
+
+.cisono-retro__story-card span {
+  color: var(--cisono-retro-orange);
 }
 
 .cisono-retro__marquee {
@@ -432,11 +629,22 @@
 }
 
 .cisono-retro__closing h2 {
-  max-width: 10ch;
+  max-width: none;
   margin: 0;
-  font-size: clamp(5rem, 10vw, 14rem);
+  font-size: clamp(4.4rem, 8.2vw, 11rem);
   line-height: 0.8;
   text-transform: uppercase;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+.cisono-retro__closing h2 span {
+  display: block;
+}
+
+.cisono-retro__closing h2 span:first-child {
+  white-space: nowrap;
 }
 
 [data-retro-reveal] {
@@ -462,6 +670,26 @@
   96% { transform: translate(0); text-shadow: 0 0 1.8rem rgba(253, 138, 70, 0.45); }
 }
 
+@keyframes cisono-loader-drift {
+  from { transform: translateX(8vw); }
+  to { transform: translateX(-28vw); }
+}
+
+@keyframes cisono-title-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-5vw); }
+}
+
+@keyframes cisono-panel-pulse {
+  0%, 100% { box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 3rem rgba(253, 138, 70, 0.18); }
+}
+
+@keyframes cisono-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 @keyframes cisono-float {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(0, -1.6rem, 0); }
@@ -480,11 +708,29 @@
   }
 
   .cisono-retro__hero {
-    grid-template-columns: 1fr;
+    clip-path: none;
+    border-radius: 0;
   }
 
-  .cisono-retro__image-stack {
-    min-height: 58rem;
+  .cisono-retro__hero-copy {
+    left: 2rem;
+    right: 2rem;
+    bottom: 24%;
+  }
+
+  .cisono-retro__hero-panel,
+  .cisono-retro__hero-status {
+    left: 2rem;
+  }
+
+  .cisono-retro__code--hero {
+    right: 2rem;
+  }
+
+  .cisono-retro__manifesto {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    text-align: center;
   }
 
   .cisono-retro__cards {
@@ -510,22 +756,21 @@
 
   .cisono-retro__hero-copy h1,
   .cisono-retro__closing h2 {
-    font-size: clamp(4.8rem, 18vw, 8rem);
+    font-size: clamp(4.4rem, 15vw, 7.6rem);
   }
 
-  .cisono-retro__image-stack {
-    min-height: 48rem;
+  .cisono-retro__hero-panel {
+    width: calc(100% - 4rem);
+    padding: 1.4rem;
+    font-size: 1.2rem;
   }
 
-  .cisono-retro__image--main {
-    inset: 2rem 0 0;
+  .cisono-retro__sound-tab,
+  .cisono-retro__system-tab {
+    padding-inline: 2rem;
   }
 
-  .cisono-retro__image--float {
-    right: auto;
-    left: 0;
-    bottom: 0;
-    width: 44%;
-    height: 24rem;
+  .cisono-retro__closing h2 span:first-child {
+    font-size: clamp(3.9rem, 13vw, 6.4rem);
   }
 }

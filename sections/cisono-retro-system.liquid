@@ -18,7 +18,9 @@
 -%}
 
 <section class="cisono-retro" data-cisono-retro>
-  <div class="cisono-retro__loader" data-retro-loader>
+  <div class="cisono-retro__loader" style="--retro-hero-bg: url('{{ 'cisono-la-retro-bg.png' | asset_url }}');" data-retro-loader>
+    <div class="cisono-retro__loader-title" aria-hidden="true">{{ section.settings.heading }}</div>
+    <div class="cisono-retro__sound-tab">[Visual mode]</div>
     <div class="cisono-retro__hud cisono-retro__hud--top">
       <span>{{ section.settings.system_label }}</span>
       <span>STATUS CHECK.................OK</span>
@@ -47,6 +49,8 @@
     </header>
 
     <div class="cisono-retro__hero" style="--retro-hero-bg: url('{{ 'cisono-la-retro-bg.png' | asset_url }}');">
+      <div class="cisono-retro__sound-tab cisono-retro__sound-tab--hero">[Visual mode]</div>
+      <div class="cisono-retro__hero-status">[CITY: LA]</div>
       <div class="cisono-retro__hero-panel" data-retro-reveal>
         <p>LOADING...</p>
         <p>ANALYZING LOS ANGELES ARCHIVES...</p>
@@ -56,7 +60,7 @@
       <div class="cisono-retro__hero-copy" data-retro-reveal>
         <p>[TIME: {{ 'now' | date: '%H:%M' }}]</p>
         <h1>{{ section.settings.heading }}</h1>
-        <p class="cisono-retro__hero-note">Retro mood meets Los Angeles fashion energy.</p>
+        <p class="cisono-retro__hero-note"><span aria-hidden="true">|||</span> Retro mood meets Los Angeles fashion energy. Everyday pieces recalibrated for confidence, movement, and repeat wear.</p>
       </div>
 
       <div class="cisono-retro__code cisono-retro__code--hero" data-retro-reveal>
@@ -65,12 +69,24 @@
         <span>OPENWARDROBE();</span>
         <span>RECALIBRATEFIT();</span>
       </div>
+      <div class="cisono-retro__system-tab">SYSTEM: RUNNING</div>
     </div>
 
     <div class="cisono-retro__manifesto" data-retro-reveal>
-      <span>// THE STORY</span>
-      <h2>A journey through fabric, motion, and Los Angeles style.</h2>
-      <p>{{ section.settings.manifesto }}</p>
+      <div class="cisono-retro__story-copy">
+        <span>// THE STORY</span>
+        <h2>A journey through fabric, motion, and Los Angeles style.</h2>
+        <p>{{ section.settings.manifesto }}</p>
+      </div>
+      <div class="cisono-retro__story-orbit" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <a class="cisono-retro__story-card" href="{{ routes.all_products_collection_url }}">
+        <span>FEEL INTO THE FIT</span>
+        <strong>CiSono rewrites everyday dressing as an LA signal.</strong>
+      </a>
     </div>
 
     <div class="cisono-retro__marquee" aria-hidden="true">
@@ -130,7 +146,7 @@
 
     <footer class="cisono-retro__closing" data-retro-reveal>
       <span>// Thanks for visiting CiSono</span>
-      <h2>Confidence you can wear again.</h2>
+      <h2><span>Confidence</span><span>you can wear</span><span>again.</span></h2>
       <a href="{{ routes.all_products_collection_url }}">[View collection]</a>
     </footer>
   </div>
