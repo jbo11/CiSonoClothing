@@ -96,6 +96,11 @@
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
+          {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+            <p class="caption-large">
+              Want restock help? Contact CiSono and we will help confirm availability or suggest a similar style.
+            </p>
+          {%- endif -%}
         </div>
       {%- endform -%}
     </product-form>

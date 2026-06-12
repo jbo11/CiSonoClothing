@@ -11,6 +11,44 @@
   "sections": {
     "rich-text": {
       "type": "rich-text",
+      "blocks": {
+        "text_brand_positioning": {
+          "type": "text",
+          "settings": {
+            "text": "<p>LOS ANGELES WOMEN'S STYLE</p>"
+          }
+        },
+        "heading_customer_promise": {
+          "type": "heading",
+          "settings": {
+            "heading": "Effortless layers, denim, and tops for everyday confidence",
+            "heading_size": "h1"
+          }
+        },
+        "text_customer_promise": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover approachable pieces selected for soft fabrics, easy styling, and wear-now versatility.</p>"
+          }
+        },
+        "button_shop_collection": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop new arrivals",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "Browse outerwear",
+            "button_link_2": "shopify://collections/outerwear",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "text_brand_positioning",
+        "heading_customer_promise",
+        "text_customer_promise",
+        "button_shop_collection"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -108,14 +146,14 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>THE REVIEWS</p>"
+            "text": "<p>STYLE NOTES</p>"
           }
         },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "A Fashion Must",
-            "heading_size": "h0"
+            "heading": "Soft fabrics. Easy outfits. Everyday polish.",
+            "heading_size": "h1"
           }
         }
       },
@@ -138,8 +176,8 @@
         "column": {
           "type": "column",
           "settings": {
-            "title": "So soft",
-            "text": "<p><em>“I absolutely love how soft the fabric is. It feels luxurious and looks high-quality.”</em> – Wendy P.</p>",
+            "title": "Made to feel easy",
+            "text": "<p>Comfortable textures and relaxed silhouettes make each piece simple to reach for on busy days.</p>",
             "link_label": "",
             "link": ""
           }
@@ -147,8 +185,8 @@
         "column-1": {
           "type": "column",
           "settings": {
-            "title": "Perfectly versatile",
-            "text": "<p><em>\"This piece is amazing. The way it transitions from day to night is genius. I can’t imagine my wardrobe without it.\"</em> – Mel S.</p>",
+            "title": "Styled your way",
+            "text": "<p>Pair with denim, layer over basics, or dress up with boots and jewelry for an easy day-to-night look.</p>",
             "link_label": "",
             "link": ""
           }
@@ -156,8 +194,8 @@
         "column-2": {
           "type": "column",
           "settings": {
-            "title": "Timeless elegance",
-            "text": "<p><em>“Top-notch quality, as always. I’m in love with the elegant yet minimalist design.”</em> – Au C.</p>",
+            "title": "Curated in Los Angeles",
+            "text": "<p>Seasonal pieces selected for modern wardrobes, approachable prices, and polished everyday wear.</p>",
             "link_label": "",
             "link": ""
           }
@@ -273,14 +311,14 @@
         "heading_aPpkAG": {
           "type": "heading",
           "settings": {
-            "heading": "Where Expertise Meets Style",
+            "heading": "Season-ready style, made simple",
             "heading_size": "h1"
           }
         },
         "text_pUWMML": {
           "type": "text",
           "settings": {
-            "text": "<p>Browse through our extensive collections crafted with each season in mind.<br/>Stay ahead of trends and embrace seasonal styles with ease.</p>"
+            "text": "<p>Build a closet that works harder with lightweight layers, flattering tops, and denim-friendly pieces you can style all week.</p>"
           }
         },
         "button_pLUFck": {
@@ -355,13 +393,13 @@
         "text_U8QpEq": {
           "type": "text",
           "settings": {
-            "text": "<p>THE STORY</p>"
+            "text": "<p>THE CISONO EDIT</p>"
           }
         },
         "heading_WWd4zG": {
           "type": "heading",
           "settings": {
-            "heading": "Exceptional Styles",
+            "heading": "Los Angeles style, everyday ease",
             "heading_size": "h1"
           }
         }
@@ -419,8 +457,8 @@
         "column_YUbGk4": {
           "type": "column",
           "settings": {
-            "title": "<strong>Uniquely crafted designs</strong>",
-            "text": "<p>From the first spark of inspiration to the final stitch, we continually challenge ourselves to explore new ideas, discover fresh solutions, and push the boundaries of fashion to create pieces that stand out.</p>",
+            "title": "<strong>Curated for real wardrobes</strong>",
+            "text": "<p>CiSono focuses on versatile pieces that help you get dressed quickly and still feel put together.</p>",
             "link_label": "",
             "link": ""
           }
@@ -428,8 +466,8 @@
         "column_JXdgxp": {
           "type": "column",
           "settings": {
-            "title": "<strong>Expertly Produced</strong>",
-            "text": "<p>Each piece in our collection is supplied by a trusted manufacturing partner known for their exceptional quality and precision. We carefully select designs and fabrics to ensure every garment embodies style, comfort, and durability.</p>",
+            "title": "<strong>Easy to mix, layer, and repeat</strong>",
+            "text": "<p>From outerwear to tops and denim, each collection is selected to pair naturally with pieces you already love.</p>",
             "link_label": "",
             "link": ""
           }
@@ -462,8 +500,8 @@
         "column_PKyDVq": {
           "type": "column",
           "settings": {
-            "title": "<strong>Made by us to bring you confidence</strong>",
-            "text": "<p>One of our customers once said, <em><strong>“It’s amazing how something so simple can make me feel so confident.”</strong></em><em> </em>We design our clothing to empower you, offering pieces that not only look great but also make you feel your best.</p>",
+            "title": "<strong>Confidence without overthinking it</strong>",
+            "text": "<p>Reach for pieces with polished details, comfortable fits, and enough versatility to carry you from errands to dinner.</p>",
             "link_label": "",
             "link": ""
           }
@@ -539,14 +577,14 @@
         "heading_YhFCwV": {
           "type": "heading",
           "settings": {
-            "heading": "Stay Ahead of the Trends",
+            "heading": "Get the weekly CiSono edit",
             "heading_size": "h1"
           }
         },
         "paragraph_pibahK": {
           "type": "paragraph",
           "settings": {
-            "text": ""
+            "text": "<p>New arrivals, easy outfit ideas, and first access to limited restocks.</p>"
           }
         },
         "email_form_HdDrwt": {
