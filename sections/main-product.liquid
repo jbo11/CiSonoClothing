@@ -37,6 +37,26 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
     }
+
+    .cisono-product-notes {
+      margin: 2rem 0;
+      padding: 1.6rem;
+      border: 0.1rem solid rgba(var(--color-foreground), 0.16);
+      background: rgba(var(--color-foreground), 0.03);
+    }
+
+    .cisono-product-notes .h4 {
+      margin: 0 0 0.8rem;
+    }
+
+    .cisono-product-notes ul {
+      margin: 0;
+      padding-left: 2rem;
+    }
+
+    .cisono-product-notes li + li {
+      margin-top: 0.5rem;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>

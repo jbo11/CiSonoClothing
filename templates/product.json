@@ -35,6 +35,30 @@
           "type": "description",
           "settings": {}
         },
+        "style_notes": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"cisono-product-notes\"><h2 class=\"h4\">Style notes</h2><ul><li>Easy to dress up or down with denim, trousers, or layered basics.</li><li>Selected for comfortable wear and everyday versatility.</li><li>Need help styling it? Call or message the Los Angeles showroom for fit guidance.</li></ul></div>"
+          }
+        },
+        "fit_care": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Fit, fabric, and care",
+            "icon": "ruler",
+            "content": "<p>Check the selected size and product photos for fit cues. For best results, follow the garment care label and wash with similar colors. Contact us before ordering if you want help choosing a size.</p>",
+            "page": ""
+          }
+        },
+        "shipping_help": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping and support",
+            "icon": "truck",
+            "content": "<p>Shipping is calculated at checkout. Questions about availability, pickup, or styling? Contact CiSono in Los Angeles and we will help you find the right piece.</p>",
+            "page": ""
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -50,7 +74,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": false
           }
         },
         "share": {
@@ -66,6 +90,9 @@
         "price",
         "rating",
         "description",
+        "style_notes",
+        "fit_care",
+        "shipping_help",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
@@ -74,17 +101,17 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "medium",
+        "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail_slider",
         "media_position": "left",
         "image_zoom": "lightbox",
         "mobile_thumbnails": "show",
-        "hide_variants": true,
+        "hide_variants": false,
         "enable_video_looping": false,
-        "padding_top": 52,
-        "padding_bottom": 24
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "related-products": {
