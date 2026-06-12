@@ -205,11 +205,13 @@
 }
 
 .cisono-retro__manifesto {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
-  gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   padding: 10rem 0;
   border-top: 0.1rem solid var(--cisono-retro-line);
+  text-align: center;
 }
 
 .cisono-retro__manifesto span,
@@ -218,7 +220,7 @@
 }
 
 .cisono-retro__manifesto h2 {
-  max-width: 12ch;
+  max-width: 16ch;
   margin: 0;
   font-size: clamp(4rem, 7vw, 10rem);
   line-height: 0.82;
@@ -226,8 +228,8 @@
 }
 
 .cisono-retro__manifesto p {
-  max-width: 58rem;
-  margin: 2rem 0 0;
+  max-width: 72rem;
+  margin: 0;
   font-size: clamp(1.8rem, 2.4vw, 3.2rem);
   line-height: 1.02;
 }
@@ -391,8 +393,7 @@
     padding-right: 2rem;
   }
 
-  .cisono-retro__hero,
-  .cisono-retro__manifesto {
+  .cisono-retro__hero {
     grid-template-columns: 1fr;
   }
 
