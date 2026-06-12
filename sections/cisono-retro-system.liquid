@@ -25,11 +25,10 @@
       <span>BIO {{ total_products | default: 0 }}:2</span>
     </div>
     <div class="cisono-retro__loader-core">
-      <p>//SYSTEM LOADING</p>
-      <div class="cisono-retro__progress">
-        <span>progress</span>
-        <span data-retro-progress>0%</span>
-      </div>
+      <p>LOADING...</p>
+      <p>ANALYZING LOS ANGELES ARCHIVES...</p>
+      <p>RETRIEVING CISONO LOOKS...</p>
+      <p>DISPLAYING "PAST IMAGES AND STORY"</p>
       <div class="cisono-retro__bar"><span data-retro-bar></span></div>
       <button class="cisono-retro__skip" type="button" data-retro-skip>Skip loading</button>
     </div>
@@ -47,43 +46,24 @@
       <span>Cart {{ cart.item_count | prepend: '00' | slice: -2, 2 }}</span>
     </header>
 
-    <div class="cisono-retro__hero">
+    <div class="cisono-retro__hero" style="--retro-hero-bg: url('{{ 'cisono-la-retro-bg.png' | asset_url }}');">
+      <div class="cisono-retro__hero-panel" data-retro-reveal>
+        <p>LOADING...</p>
+        <p>ANALYZING LOS ANGELES ARCHIVES...</p>
+        <p>RETRIEVING CISONO LOOKS...</p>
+        <p>DISPLAYING "PAST IMAGES AND STORY"</p>
+      </div>
       <div class="cisono-retro__hero-copy" data-retro-reveal>
-        <p>SYSTEM: RUNNING</p>
-        <p>SW VERSION 13-CISONO-26</p>
+        <p>[TIME: {{ 'now' | date: '%H:%M' }}]</p>
         <h1>{{ section.settings.heading }}</h1>
-        <div class="cisono-retro__code">
-          <span>//</span>
-          <span>IF READYTOSTYLE { OPENWARDROBE(); }</span>
-          <span>ELSE { RECALIBRATEFIT(); }</span>
-        </div>
+        <p class="cisono-retro__hero-note">Retro mood meets Los Angeles fashion energy.</p>
       </div>
 
-      <div class="cisono-retro__image-stack" data-retro-reveal>
-        {%- if section.settings.hero_image != blank -%}
-          <div class="cisono-retro__image cisono-retro__image--main">
-            {{
-              section.settings.hero_image
-              | image_url: width: 1400
-              | image_tag:
-                widths: '360, 540, 720, 900, 1200, 1400',
-                sizes: '(min-width: 990px) 44vw, 88vw',
-                loading: 'eager'
-            }}
-          </div>
-        {%- endif -%}
-        {%- if section.settings.support_image != blank -%}
-          <div class="cisono-retro__image cisono-retro__image--float">
-            {{
-              section.settings.support_image
-              | image_url: width: 900
-              | image_tag:
-                widths: '240, 360, 540, 720, 900',
-                sizes: '(min-width: 990px) 22vw, 48vw',
-                loading: 'lazy'
-            }}
-          </div>
-        {%- endif -%}
+      <div class="cisono-retro__code cisono-retro__code--hero" data-retro-reveal>
+        <span>// WELCOME TO CISONO</span>
+        <span>LET JOURNEYBEGIN = TRUE;</span>
+        <span>OPENWARDROBE();</span>
+        <span>RECALIBRATEFIT();</span>
       </div>
     </div>
 

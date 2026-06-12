@@ -4,21 +4,18 @@
       if (root.dataset.retroReady === 'true') return;
       root.dataset.retroReady = 'true';
 
-      const progress = root.querySelector('[data-retro-progress]');
       const bar = root.querySelector('[data-retro-bar]');
       const skip = root.querySelector('[data-retro-skip]');
       let value = 0;
 
       const complete = () => {
         value = 100;
-        if (progress) progress.textContent = '100%';
         if (bar) bar.style.width = '100%';
         root.classList.add('is-loaded');
       };
 
       const timer = window.setInterval(() => {
         value = Math.min(100, value + Math.floor(Math.random() * 12) + 5);
-        if (progress) progress.textContent = `${value}%`;
         if (bar) bar.style.width = `${value}%`;
         if (value >= 100) {
           window.clearInterval(timer);

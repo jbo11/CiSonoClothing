@@ -84,14 +84,23 @@
 
 .cisono-retro__loader-core {
   align-self: center;
-  justify-self: center;
-  width: min(52rem, 100%);
+  justify-self: start;
+  width: min(44rem, 100%);
+  margin-left: 3.6rem;
+  border: 0.1rem solid rgba(243, 237, 216, 0.72);
+  background: rgba(243, 237, 216, 0.1);
+  padding: 2rem;
   color: var(--cisono-retro-cream);
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
 }
 
 .cisono-retro__loader-core p {
-  margin: 0 0 1.2rem;
-  color: var(--cisono-retro-orange);
+  margin: 0 0 1rem;
+  color: var(--cisono-retro-cream);
+}
+
+.cisono-retro__loader-core p:last-of-type {
+  margin-bottom: 0;
 }
 
 .cisono-retro__progress {
@@ -101,7 +110,8 @@
 }
 
 .cisono-retro__bar {
-  height: 1.1rem;
+  height: 0.2rem;
+  margin-top: 1.6rem;
   border: 0.1rem solid var(--cisono-retro-line);
   background: rgba(243, 237, 216, 0.06);
 }
@@ -138,28 +148,92 @@
 }
 
 .cisono-retro__hero {
-  display: grid;
-  grid-template-columns: minmax(28rem, 0.9fr) minmax(32rem, 1.1fr);
-  gap: 5vw;
-  align-items: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   min-height: calc(100vh - 6rem);
+  border: 0.1rem solid rgba(253, 138, 70, 0.35);
+  background-image: var(--retro-hero-bg);
+  background-position: center;
+  background-size: cover;
+}
+
+.cisono-retro__hero::before,
+.cisono-retro__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cisono-retro__hero::before {
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(243, 237, 216, 0.1), transparent 34%),
+    linear-gradient(180deg, rgba(7, 7, 7, 0.2), rgba(7, 7, 7, 0.76));
+}
+
+.cisono-retro__hero::after {
+  z-index: 4;
+  background:
+    linear-gradient(rgba(243, 237, 216, 0.04) 50%, rgba(7, 7, 7, 0.06) 50%),
+    radial-gradient(circle, transparent 46%, rgba(7, 7, 7, 0.42) 100%);
+  background-size: 100% 4px, auto;
+  mix-blend-mode: multiply;
+}
+
+.cisono-retro__hero-panel {
+  position: absolute;
+  top: 7rem;
+  left: 4rem;
+  z-index: 3;
+  width: min(42rem, calc(100% - 8rem));
+  padding: 2rem;
+  border: 0.1rem solid rgba(243, 237, 216, 0.72);
+  background: rgba(243, 237, 216, 0.1);
+  color: var(--cisono-retro-cream);
+  font-size: 1.5rem;
+  line-height: 1.45;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+.cisono-retro__hero-panel p {
+  margin: 0 0 0.6rem;
 }
 
 .cisono-retro__hero-copy p {
   margin: 0 0 1rem;
-  color: var(--cisono-retro-orange);
+  color: var(--cisono-retro-cream);
   font-size: 1.2rem;
   text-transform: uppercase;
 }
 
+.cisono-retro__hero-copy {
+  position: absolute;
+  left: -4vw;
+  right: -4vw;
+  bottom: 28%;
+  z-index: 2;
+}
+
 .cisono-retro__hero-copy h1 {
-  max-width: 9ch;
   margin: 2rem 0;
-  font-size: clamp(5rem, 11vw, 15rem);
+  max-width: none;
+  color: rgba(243, 237, 216, 0.94);
+  font-family: Impact, "Arial Black", Arial, sans-serif;
+  font-size: clamp(7rem, 14vw, 21rem);
   line-height: 0.78;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 2rem rgba(243, 237, 216, 0.42);
   animation: cisono-glitch 3.6s steps(2, end) infinite;
+}
+
+.cisono-retro__hero-note {
+  max-width: 40rem;
+  margin-left: 8vw !important;
 }
 
 .cisono-retro__code {
@@ -167,6 +241,18 @@
   gap: 0.6rem;
   max-width: 38rem;
   color: var(--cisono-retro-orange);
+}
+
+.cisono-retro__code--hero {
+  position: absolute;
+  right: 4rem;
+  bottom: 6rem;
+  z-index: 3;
+  width: min(36rem, calc(100% - 8rem));
+  padding: 2rem;
+  border: 0.1rem solid rgba(243, 237, 216, 0.6);
+  background: rgba(7, 7, 7, 0.28);
+  color: var(--cisono-retro-cream);
 }
 
 .cisono-retro__image-stack {
@@ -399,10 +485,6 @@
 
   .cisono-retro__image-stack {
     min-height: 58rem;
-  }
-
-  .cisono-retro__image--main {
-    inset-left: 0;
   }
 
   .cisono-retro__cards {

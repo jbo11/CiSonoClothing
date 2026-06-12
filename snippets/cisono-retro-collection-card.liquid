@@ -25,6 +25,6 @@
     <span>[collection name] {</span>
     <h3>/ {{ featured_collection.title }}</h3>
     <span>[description] {</span>
-    <p>%%{{ featured_collection.description | strip_html | default: 'Curated apparel for confident everyday movement.' | truncate: 120 }}%%</p>
+    <p>{{ featured_collection.description | strip_html | default: 'Curated apparel for confident everyday movement.' | truncate: 120 }}</p>
   </div>
 </a>
