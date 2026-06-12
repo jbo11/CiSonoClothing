@@ -9,84 +9,21 @@
  */
 {
   "sections": {
-    "editorial_landing": {
-      "type": "cisono-editorial-landing",
+    "retro_system": {
+      "type": "cisono-retro-system",
       "settings": {
-        "collection": "outerwear",
-        "image": "shopify://shop_images/blonde-woman-in-denim.jpg",
-        "kicker": "Collection",
-        "eyebrow": "Los Angeles / Everyday movement",
-        "heading": "CiSono Clothing",
-        "manifesto": "Born in Los Angeles, made for everyday movement. Soft layers, denim, and polished tops give women the confidence to move through the city without compromise.",
-        "products_to_show": 6,
-        "color_scheme": "scheme-2"
-      }
-    },
-    "tops_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Collection 02 / Tops",
-        "heading_size": "h1",
-        "description": "<p>Soft structure, easy layers, and denim-ready proportions.</p>",
-        "show_description": true,
-        "description_style": "uppercase",
-        "collection": "tops",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "link",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-2",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Dispatch 01 / The weekly edit",
-            "heading_size": "h1"
-          }
-        },
-        "paragraph": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>New arrivals, restocks, and styling notes from CiSono.</p>"
-          }
-        },
-        "email_form": {
-          "type": "email_form",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "heading",
-        "paragraph",
-        "email_form"
-      ],
-      "settings": {
-        "color_scheme": "scheme-3",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "system_label": "CISONO FASHION VER. 2.6::26.006",
+        "heading": "Retro code. Modern wardrobe.",
+        "manifesto": "Step into a fashion interface where soft layers, denim, and polished tops are calibrated for motion. CiSono rebuilds the everyday wardrobe with nostalgic texture, city confidence, and wear-now ease.",
+        "hero_image": "shopify://shop_images/blonde-woman-in-denim.jpg",
+        "support_image": "shopify://shop_images/close-up-leather-jacket-over-shoulders.jpg",
+        "collection_one": "outerwear",
+        "collection_two": "tops",
+        "collection_three": "denim"
       }
     }
   },
   "order": [
-    "editorial_landing",
-    "tops_collection",
-    "newsletter"
+    "retro_system"
   ]
 }

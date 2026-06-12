@@ -1,0 +1,30 @@
+<a class="cisono-retro__card" href="{{ featured_collection.url }}" data-retro-reveal>
+  <span>[{{ index | prepend: '00' | slice: -3, 3 }}]</span>
+  <div class="cisono-retro__card-media">
+    {%- if featured_collection.featured_image -%}
+      {{
+        featured_collection.featured_image
+        | image_url: width: 900
+        | image_tag:
+          widths: '240, 360, 540, 720, 900',
+          sizes: '(min-width: 990px) 28vw, 84vw',
+          loading: 'lazy'
+      }}
+    {%- elsif featured_collection.products.first.featured_media -%}
+      {{
+        featured_collection.products.first.featured_media
+        | image_url: width: 900
+        | image_tag:
+          widths: '240, 360, 540, 720, 900',
+          sizes: '(min-width: 990px) 28vw, 84vw',
+          loading: 'lazy'
+      }}
+    {%- endif -%}
+  </div>
+  <div class="cisono-retro__card-copy">
+    <span>[collection name] {</span>
+    <h3>/ {{ featured_collection.title }}</h3>
+    <span>[description] {</span>
+    <p>%%{{ featured_collection.description | strip_html | default: 'Curated apparel for confident everyday movement.' | truncate: 120 }}%%</p>
+  </div>
+</a>

@@ -1,0 +1,215 @@
+{{ 'cisono-retro-system.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'cisono-retro-system.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign collection_one = section.settings.collection_one
+  assign collection_two = section.settings.collection_two
+  assign collection_three = section.settings.collection_three
+  assign total_products = 0
+  if collection_one != blank
+    assign total_products = total_products | plus: collection_one.products_count
+  endif
+  if collection_two != blank
+    assign total_products = total_products | plus: collection_two.products_count
+  endif
+  if collection_three != blank
+    assign total_products = total_products | plus: collection_three.products_count
+  endif
+-%}
+
+<section class="cisono-retro" data-cisono-retro>
+  <div class="cisono-retro__loader" data-retro-loader>
+    <div class="cisono-retro__hud cisono-retro__hud--top">
+      <span>{{ section.settings.system_label }}</span>
+      <span>STATUS CHECK.................OK</span>
+      <span>BIO {{ total_products | default: 0 }}:2</span>
+    </div>
+    <div class="cisono-retro__loader-core">
+      <p>//SYSTEM LOADING</p>
+      <div class="cisono-retro__progress">
+        <span>progress</span>
+        <span data-retro-progress>0%</span>
+      </div>
+      <div class="cisono-retro__bar"><span data-retro-bar></span></div>
+      <button class="cisono-retro__skip" type="button" data-retro-skip>Skip loading</button>
+    </div>
+    <div class="cisono-retro__hud cisono-retro__hud--bottom">
+      <span>Calibrating fit archive...</span>
+      <span>Loading Los Angeles layers...</span>
+      <span>Rendering collection grid...</span>
+    </div>
+  </div>
+
+  <div class="cisono-retro__frame">
+    <header class="cisono-retro__topbar">
+      <a href="{{ routes.all_products_collection_url }}">[View collection]</a>
+      <span>{{ section.settings.system_label }}</span>
+      <span>Cart {{ cart.item_count | prepend: '00' | slice: -2, 2 }}</span>
+    </header>
+
+    <div class="cisono-retro__hero">
+      <div class="cisono-retro__hero-copy" data-retro-reveal>
+        <p>SYSTEM: RUNNING</p>
+        <p>SW VERSION 13-CISONO-26</p>
+        <h1>{{ section.settings.heading }}</h1>
+        <div class="cisono-retro__code">
+          <span>//</span>
+          <span>IF READYTOSTYLE { OPENWARDROBE(); }</span>
+          <span>ELSE { RECALIBRATEFIT(); }</span>
+        </div>
+      </div>
+
+      <div class="cisono-retro__image-stack" data-retro-reveal>
+        {%- if section.settings.hero_image != blank -%}
+          <div class="cisono-retro__image cisono-retro__image--main">
+            {{
+              section.settings.hero_image
+              | image_url: width: 1400
+              | image_tag:
+                widths: '360, 540, 720, 900, 1200, 1400',
+                sizes: '(min-width: 990px) 44vw, 88vw',
+                loading: 'eager'
+            }}
+          </div>
+        {%- endif -%}
+        {%- if section.settings.support_image != blank -%}
+          <div class="cisono-retro__image cisono-retro__image--float">
+            {{
+              section.settings.support_image
+              | image_url: width: 900
+              | image_tag:
+                widths: '240, 360, 540, 720, 900',
+                sizes: '(min-width: 990px) 22vw, 48vw',
+                loading: 'lazy'
+            }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="cisono-retro__manifesto" data-retro-reveal>
+      <span>// THE STORY</span>
+      <h2>A journey through fabric, motion, and Los Angeles style.</h2>
+      <p>{{ section.settings.manifesto }}</p>
+    </div>
+
+    <div class="cisono-retro__marquee" aria-hidden="true">
+      <span>nostalgic layers</span>
+      <span>denim signal</span>
+      <span>city uniform</span>
+      <span>soft structure</span>
+      <span>wardrobe upload</span>
+    </div>
+
+    <div class="cisono-retro__collections">
+      <div class="cisono-retro__section-label" data-retro-reveal>
+        <span>// Uploading collections...</span>
+        <span>[{{ total_products | default: 0 }} products detected]</span>
+      </div>
+
+      <div class="cisono-retro__cards">
+        {%- if collection_one != blank -%}
+          {%- render 'cisono-retro-collection-card', featured_collection: collection_one, index: 1 -%}
+        {%- endif -%}
+        {%- if collection_two != blank -%}
+          {%- render 'cisono-retro-collection-card', featured_collection: collection_two, index: 2 -%}
+        {%- endif -%}
+        {%- if collection_three != blank -%}
+          {%- render 'cisono-retro-collection-card', featured_collection: collection_three, index: 3 -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if collection_one != blank -%}
+      <div class="cisono-retro__products">
+        <div class="cisono-retro__section-label" data-retro-reveal>
+          <span>// Selected signal</span>
+          <span>{{ collection_one.title }}</span>
+        </div>
+        <div class="cisono-retro__product-grid">
+          {%- for product in collection_one.products limit: 6 -%}
+            <a href="{{ product.url }}" class="cisono-retro__product" data-retro-reveal>
+              {%- if product.featured_media -%}
+                {{
+                  product.featured_media
+                  | image_url: width: 700
+                  | image_tag:
+                    widths: '220, 360, 540, 700',
+                    sizes: '(min-width: 990px) 16vw, 45vw',
+                    loading: 'lazy'
+                }}
+              {%- endif -%}
+              <span>{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
+              <strong>{{ product.title }}</strong>
+              <em>{{ product.price | money }}</em>
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    <footer class="cisono-retro__closing" data-retro-reveal>
+      <span>// Thanks for visiting CiSono</span>
+      <h2>IF confidence == true { wearItAgain(); }</h2>
+      <a href="{{ routes.all_products_collection_url }}">[View collection]</a>
+    </footer>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CiSono Retro System",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "system_label",
+      "label": "System label",
+      "default": "CISONO FASHION VER. 2.6::26.006"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Retro code. Modern wardrobe."
+    },
+    {
+      "type": "textarea",
+      "id": "manifesto",
+      "label": "Manifesto",
+      "default": "Step into a fashion interface where soft layers, denim, and polished tops are calibrated for motion. CiSono rebuilds the everyday wardrobe with nostalgic texture, city confidence, and wear-now ease."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero fashion image"
+    },
+    {
+      "type": "image_picker",
+      "id": "support_image",
+      "label": "Supporting fashion image"
+    },
+    {
+      "type": "collection",
+      "id": "collection_one",
+      "label": "Collection one"
+    },
+    {
+      "type": "collection",
+      "id": "collection_two",
+      "label": "Collection two"
+    },
+    {
+      "type": "collection",
+      "id": "collection_three",
+      "label": "Collection three"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CiSono Retro System"
+    }
+  ]
+}
+{% endschema %}
