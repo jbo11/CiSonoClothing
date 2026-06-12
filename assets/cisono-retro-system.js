@@ -55,6 +55,21 @@
           imageStack.style.setProperty('--retro-y', `${y * 18}px`);
         });
       }
+
+      root.querySelectorAll('[data-retro-float]').forEach((card) => {
+        card.addEventListener('pointermove', (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          card.style.setProperty('--float-x', `${x * 10}px`);
+          card.style.setProperty('--float-y', `${y * -10}px`);
+        });
+
+        card.addEventListener('pointerleave', () => {
+          card.style.setProperty('--float-x', '0px');
+          card.style.setProperty('--float-y', '0px');
+        });
+      });
     });
   };
 

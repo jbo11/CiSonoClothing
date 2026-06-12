@@ -63,6 +63,48 @@
         <p class="cisono-retro__hero-note"><span aria-hidden="true">|||</span> Retro mood meets Los Angeles fashion energy. Everyday pieces recalibrated for confidence, movement, and repeat wear.</p>
       </div>
 
+      <div class="cisono-retro__hero-photos" aria-label="Featured CiSono looks">
+        {%- if collection_one != blank and collection_one.products.first.featured_media -%}
+          <a class="cisono-retro__float-photo cisono-retro__float-photo--one" href="{{ collection_one.url }}" data-retro-float data-retro-reveal>
+            <span>[001]</span>
+            {{
+              collection_one.products.first.featured_media
+              | image_url: width: 540
+              | image_tag:
+                widths: '240, 360, 540',
+                sizes: '(min-width: 990px) 18vw, 42vw',
+                loading: 'eager'
+            }}
+          </a>
+        {%- endif -%}
+        {%- if collection_two != blank and collection_two.products.first.featured_media -%}
+          <a class="cisono-retro__float-photo cisono-retro__float-photo--two" href="{{ collection_two.url }}" data-retro-float data-retro-reveal>
+            <span>[002]</span>
+            {{
+              collection_two.products.first.featured_media
+              | image_url: width: 540
+              | image_tag:
+                widths: '240, 360, 540',
+                sizes: '(min-width: 990px) 18vw, 42vw',
+                loading: 'eager'
+            }}
+          </a>
+        {%- endif -%}
+        {%- if collection_three != blank and collection_three.products.first.featured_media -%}
+          <a class="cisono-retro__float-photo cisono-retro__float-photo--three" href="{{ collection_three.url }}" data-retro-float data-retro-reveal>
+            <span>[003]</span>
+            {{
+              collection_three.products.first.featured_media
+              | image_url: width: 540
+              | image_tag:
+                widths: '240, 360, 540',
+                sizes: '(min-width: 990px) 18vw, 42vw',
+                loading: 'eager'
+            }}
+          </a>
+        {%- endif -%}
+      </div>
+
       <div class="cisono-retro__code cisono-retro__code--hero" data-retro-reveal>
         <span>// WELCOME TO CISONO</span>
         <span>LET JOURNEYBEGIN = TRUE;</span>
@@ -95,6 +137,80 @@
       <span>city uniform</span>
       <span>soft structure</span>
       <span>wardrobe upload</span>
+    </div>
+
+    <div class="cisono-retro__photo-archive" data-retro-reveal>
+      <div class="cisono-retro__archive-title">
+        <span>// INTO THE WARDROBE</span>
+        <h2>Floating fits in motion</h2>
+      </div>
+      <div class="cisono-retro__archive-stage">
+        {%- if collection_one != blank -%}
+          <a class="cisono-retro__archive-copy cisono-retro__archive-copy--one" href="{{ collection_one.url }}">
+            <span>[collection name] {</span>
+            <h3>/ {{ collection_one.title }}</h3>
+            <span>[description] {</span>
+            <p>{{ collection_one.description | strip_html | default: 'Curated apparel for confident everyday movement.' | truncate: 120 }}</p>
+          </a>
+          {%- if collection_one.products.first.featured_media -%}
+            <a class="cisono-retro__archive-photo cisono-retro__archive-photo--one" href="{{ collection_one.url }}" data-retro-float>
+              <span>[001]</span>
+              {{
+                collection_one.products.first.featured_media
+                | image_url: width: 820
+                | image_tag:
+                  widths: '320, 480, 640, 820',
+                  sizes: '(min-width: 990px) 24vw, 78vw',
+                  loading: 'lazy'
+              }}
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if collection_two != blank -%}
+          <a class="cisono-retro__archive-copy cisono-retro__archive-copy--two" href="{{ collection_two.url }}">
+            <span>[collection name] {</span>
+            <h3>/ {{ collection_two.title }}</h3>
+            <span>[description] {</span>
+            <p>{{ collection_two.description | strip_html | default: 'Soft structure and easy layers for the city.' | truncate: 120 }}</p>
+          </a>
+          {%- if collection_two.products.first.featured_media -%}
+            <a class="cisono-retro__archive-photo cisono-retro__archive-photo--two" href="{{ collection_two.url }}" data-retro-float>
+              <span>[002]</span>
+              {{
+                collection_two.products.first.featured_media
+                | image_url: width: 820
+                | image_tag:
+                  widths: '320, 480, 640, 820',
+                  sizes: '(min-width: 990px) 24vw, 78vw',
+                  loading: 'lazy'
+              }}
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if collection_three != blank -%}
+          <a class="cisono-retro__archive-copy cisono-retro__archive-copy--three" href="{{ collection_three.url }}">
+            <span>[collection name] {</span>
+            <h3>/ {{ collection_three.title }}</h3>
+            <span>[description] {</span>
+            <p>{{ collection_three.description | strip_html | default: 'Denim signals with everyday repeat value.' | truncate: 120 }}</p>
+          </a>
+          {%- if collection_three.products.first.featured_media -%}
+            <a class="cisono-retro__archive-photo cisono-retro__archive-photo--three" href="{{ collection_three.url }}" data-retro-float>
+              <span>[003]</span>
+              {{
+                collection_three.products.first.featured_media
+                | image_url: width: 820
+                | image_tag:
+                  widths: '320, 480, 640, 820',
+                  sizes: '(min-width: 990px) 24vw, 78vw',
+                  loading: 'lazy'
+              }}
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
     </div>
 
     <div class="cisono-retro__collections">

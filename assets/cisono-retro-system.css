@@ -331,6 +331,96 @@
   text-transform: none !important;
 }
 
+.cisono-retro__hero-photos {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cisono-retro__float-photo,
+.cisono-retro__archive-photo {
+  --float-x: 0px;
+  --float-y: 0px;
+  position: absolute;
+  display: block;
+  padding: 0.8rem;
+  border: 0.1rem solid rgba(243, 237, 216, 0.72);
+  border-radius: 0.4rem;
+  background:
+    linear-gradient(135deg, rgba(243, 237, 216, 0.86), rgba(253, 138, 70, 0.18)),
+    rgba(243, 237, 216, 0.22);
+  box-shadow: 0.8rem 1.4rem 3rem rgba(0, 0, 0, 0.38);
+  translate: var(--float-x) var(--float-y);
+  rotate: var(--float-rotate, 0deg);
+  pointer-events: auto;
+  transition: scale 220ms ease, filter 220ms ease;
+  animation: cisono-photo-hover var(--float-speed, 7s) ease-in-out infinite;
+}
+
+.cisono-retro__float-photo::after,
+.cisono-retro__archive-photo::after {
+  content: "";
+  position: absolute;
+  right: -0.7rem;
+  top: 42%;
+  width: 0.8rem;
+  height: 4.8rem;
+  background: var(--cisono-retro-cream);
+  opacity: 0.84;
+}
+
+.cisono-retro__float-photo:hover,
+.cisono-retro__archive-photo:hover {
+  scale: 1.035;
+  filter: saturate(1.08);
+}
+
+.cisono-retro__float-photo span,
+.cisono-retro__archive-photo span {
+  position: absolute;
+  left: 0.8rem;
+  top: -2.4rem;
+  color: var(--cisono-retro-cream);
+  font-size: 1rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.cisono-retro__float-photo img,
+.cisono-retro__archive-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 0.2rem;
+  filter: contrast(1.08) saturate(0.9);
+}
+
+.cisono-retro__float-photo--one {
+  --float-rotate: -8deg;
+  --float-speed: 7.6s;
+  top: -8rem;
+  left: 6vw;
+  width: min(25rem, 26vw);
+}
+
+.cisono-retro__float-photo--two {
+  --float-rotate: 5deg;
+  --float-speed: 6.4s;
+  right: 7vw;
+  top: 14rem;
+  width: min(24rem, 25vw);
+}
+
+.cisono-retro__float-photo--three {
+  --float-rotate: -4deg;
+  --float-speed: 8.4s;
+  left: 17vw;
+  bottom: -6rem;
+  width: min(22rem, 23vw);
+}
+
 .cisono-retro__code {
   display: grid;
   gap: 0.6rem;
@@ -529,6 +619,114 @@
   animation: cisono-marquee 24s linear infinite;
 }
 
+.cisono-retro__photo-archive {
+  position: relative;
+  min-height: 96rem;
+  padding: 10rem 0;
+  border-top: 0.1rem solid var(--cisono-retro-line);
+  overflow: hidden;
+}
+
+.cisono-retro__archive-title {
+  position: absolute;
+  top: 9rem;
+  left: 50%;
+  z-index: 1;
+  width: min(110rem, 96vw);
+  translate: -50% 0;
+  text-align: center;
+}
+
+.cisono-retro__archive-title span,
+.cisono-retro__archive-copy span {
+  color: var(--cisono-retro-cream);
+  text-transform: uppercase;
+}
+
+.cisono-retro__archive-title h2 {
+  margin: 1.4rem 0 0;
+  color: rgba(243, 237, 216, 0.94);
+  font-family: Impact, "Arial Black", Arial, sans-serif;
+  font-size: clamp(7rem, 11vw, 18rem);
+  line-height: 0.78;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 2rem rgba(243, 237, 216, 0.3);
+  animation: cisono-glitch 4.8s steps(2, end) infinite;
+}
+
+.cisono-retro__archive-stage {
+  position: relative;
+  z-index: 2;
+  min-height: 78rem;
+}
+
+.cisono-retro__archive-copy {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  gap: 1.2rem;
+  width: min(31rem, 32vw);
+  color: var(--cisono-retro-cream);
+  font-size: 1.3rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.cisono-retro__archive-copy h3 {
+  margin: 0;
+  font-size: clamp(2rem, 2.2vw, 3.4rem);
+  line-height: 0.96;
+}
+
+.cisono-retro__archive-copy p {
+  margin: 0;
+  color: rgba(243, 237, 216, 0.82);
+}
+
+.cisono-retro__archive-copy--one {
+  left: 0;
+  bottom: 10rem;
+}
+
+.cisono-retro__archive-copy--two {
+  left: 49%;
+  bottom: 22rem;
+  translate: -50% 0;
+}
+
+.cisono-retro__archive-copy--three {
+  right: 0;
+  bottom: 6rem;
+}
+
+.cisono-retro__archive-photo {
+  width: min(40rem, 28vw);
+}
+
+.cisono-retro__archive-photo--one {
+  --float-rotate: -4deg;
+  --float-speed: 7s;
+  left: 26%;
+  top: 20rem;
+}
+
+.cisono-retro__archive-photo--two {
+  --float-rotate: 3deg;
+  --float-speed: 8s;
+  right: 0;
+  top: 16rem;
+}
+
+.cisono-retro__archive-photo--three {
+  --float-rotate: -7deg;
+  --float-speed: 6.8s;
+  left: 8%;
+  bottom: -2rem;
+  width: min(36rem, 25vw);
+}
+
 .cisono-retro__collections,
 .cisono-retro__products {
   padding: 8rem 0;
@@ -690,6 +888,11 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes cisono-photo-hover {
+  0%, 100% { translate: var(--float-x) var(--float-y); }
+  50% { translate: calc(var(--float-x) + 0.8rem) calc(var(--float-y) - 1.4rem); }
+}
+
 @keyframes cisono-float {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(0, -1.6rem, 0); }
@@ -733,6 +936,61 @@
     text-align: center;
   }
 
+  .cisono-retro__float-photo--one {
+    left: -4rem;
+    width: 21rem;
+  }
+
+  .cisono-retro__float-photo--two {
+    right: -5rem;
+    width: 20rem;
+  }
+
+  .cisono-retro__float-photo--three {
+    display: none;
+  }
+
+  .cisono-retro__photo-archive {
+    min-height: auto;
+  }
+
+  .cisono-retro__archive-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    translate: none;
+    margin-bottom: 4rem;
+  }
+
+  .cisono-retro__archive-title h2 {
+    white-space: normal;
+  }
+
+  .cisono-retro__archive-stage {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: auto;
+  }
+
+  .cisono-retro__archive-copy,
+  .cisono-retro__archive-photo {
+    position: relative;
+    inset: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    top: auto;
+    width: 100%;
+    translate: none;
+  }
+
+  .cisono-retro__archive-copy--two,
+  .cisono-retro__archive-copy--three {
+    order: 0;
+  }
+
   .cisono-retro__cards {
     grid-template-columns: 1fr;
   }
@@ -763,6 +1021,20 @@
     width: calc(100% - 4rem);
     padding: 1.4rem;
     font-size: 1.2rem;
+  }
+
+  .cisono-retro__hero-photos {
+    opacity: 0.78;
+  }
+
+  .cisono-retro__float-photo--one {
+    top: -3rem;
+    width: 16rem;
+  }
+
+  .cisono-retro__float-photo--two {
+    top: 9rem;
+    width: 15rem;
   }
 
   .cisono-retro__sound-tab,
