@@ -9,295 +9,45 @@
  */
 {
   "sections": {
-    "hero": {
-      "type": "image-banner",
-      "blocks": {
-        "hero_heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "CiSono Clothing",
-            "heading_size": "hxl"
-          }
-        },
-        "hero_text": {
-          "type": "text",
-          "settings": {
-            "text": "Los Angeles layers, denim, and tops styled for everyday confidence.",
-            "text_style": "subtitle"
-          }
-        },
-        "hero_buttons": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop new arrivals",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "Explore outerwear",
-            "button_link_2": "shopify://collections/outerwear",
-            "button_style_secondary_2": true
-          }
-        }
-      },
-      "block_order": [
-        "hero_heading",
-        "hero_text",
-        "hero_buttons"
-      ],
+    "editorial_landing": {
+      "type": "cisono-editorial-landing",
       "settings": {
-        "image": "shopify://shop_images/download_635dbed0-70c4-4d87-ba20-bf8e372f3f45.png",
-        "image_2": "shopify://shop_images/download_e31a4ec1-0b31-4236-b387-3a9f54e05ad9.png",
-        "image_overlay_opacity": 20,
-        "image_height": "large",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-3",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "intro": {
-      "type": "rich-text",
-      "blocks": {
-        "intro_eyebrow": {
-          "type": "text",
-          "settings": {
-            "text": "<p>THE EVERYDAY EDIT</p>"
-          }
-        },
-        "intro_heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Easy pieces that make getting dressed feel considered, not complicated.",
-            "heading_size": "h1"
-          }
-        },
-        "intro_copy": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Shop soft layers, polished tops, and denim-friendly staples curated for real wardrobes and repeat wear.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "intro_eyebrow",
-        "intro_heading",
-        "intro_copy"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 64,
-        "padding_bottom": 56
-      }
-    },
-    "category_tiles": {
-      "type": "collection-list",
-      "blocks": {
-        "outerwear": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "outerwear"
-          }
-        },
-        "tops": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "tops"
-          }
-        },
-        "denim": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "denim"
-          }
-        }
-      },
-      "block_order": [
-        "outerwear",
-        "tops",
-        "denim"
-      ],
-      "settings": {
-        "title": "Shop by mood",
-        "heading_size": "h1",
-        "image_ratio": "portrait",
-        "columns_desktop": 3,
-        "color_scheme": "scheme-2",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 32,
-        "padding_bottom": 68
-      }
-    },
-    "bestsellers": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Bestsellers for the week ahead",
-        "heading_size": "h1",
-        "description": "<p>Wear-now favorites selected for comfort, layering, and easy outfit building.</p>",
-        "show_description": true,
-        "description_style": "body",
         "collection": "outerwear",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 64,
-        "padding_bottom": 72
+        "image": "shopify://shop_images/blonde-woman-in-denim.jpg",
+        "kicker": "Collection",
+        "eyebrow": "Los Angeles / Everyday movement",
+        "heading": "CiSono Clothing",
+        "manifesto": "Born in Los Angeles, made for everyday movement. Soft layers, denim, and polished tops give women the confidence to move through the city without compromise.",
+        "products_to_show": 6,
+        "color_scheme": "scheme-2"
       }
     },
-    "styling_story": {
-      "type": "image-with-text",
-      "blocks": {
-        "caption": {
-          "type": "caption",
-          "settings": {
-            "caption": "STYLE WITHOUT THE OVERTHINKING",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Start with one polished layer. Build three outfits around it.",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>CiSono pieces are chosen to work across your closet: layered over a ribbed tank, tucked into denim, or dressed up with boots and jewelry.</p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop versatile layers",
-            "button_link": "shopify://collections/outerwear",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "caption",
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/close-up-leather-jacket-over-shoulders.jpg",
-        "height": "large",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-3",
-        "color_scheme": "scheme-3",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
-    "tops_edit": {
+    "tops_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Fresh tops, ready to repeat",
+        "title": "Collection 02 / Tops",
         "heading_size": "h1",
-        "description": "<p>Soft textures, feminine details, and silhouettes that work under jackets or on their own.</p>",
+        "description": "<p>Soft structure, easy layers, and denim-ready proportions.</p>",
         "show_description": true,
-        "description_style": "body",
+        "description_style": "uppercase",
         "collection": "tops",
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "outline",
+        "view_all_style": "link",
         "enable_desktop_slider": false,
         "color_scheme": "scheme-2",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": true,
+        "show_rating": false,
         "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 68,
-        "padding_bottom": 68
-      }
-    },
-    "trust_values": {
-      "type": "multicolumn",
-      "blocks": {
-        "fit": {
-          "type": "column",
-          "settings": {
-            "title": "Fit help before you buy",
-            "text": "<p>Need a second opinion on size or styling? Contact the Los Angeles showroom before ordering.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "restocks": {
-          "type": "column",
-          "settings": {
-            "title": "Limited runs, thoughtful restocks",
-            "text": "<p>Sign up for updates when a style sells through, plus first access to new arrivals.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "styling": {
-          "type": "column",
-          "settings": {
-            "title": "Wear-more styling",
-            "text": "<p>Every piece is merchandised to mix with denim, layers, and staples you already own.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "fit",
-        "restocks",
-        "styling"
-      ],
-      "settings": {
-        "title": "Why shoppers come back",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-4",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 64,
-        "padding_bottom": 64
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "newsletter": {
@@ -306,14 +56,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Get the weekly CiSono edit",
+            "heading": "Dispatch 01 / The weekly edit",
             "heading_size": "h1"
           }
         },
         "paragraph": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>New arrivals, outfit ideas, and first access to limited restocks.</p>"
+            "text": "<p>New arrivals, restocks, and styling notes from CiSono.</p>"
           }
         },
         "email_form": {
@@ -327,21 +77,16 @@
         "email_form"
       ],
       "settings": {
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-3",
         "full_width": true,
-        "padding_top": 72,
-        "padding_bottom": 76
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
-    "hero",
-    "intro",
-    "category_tiles",
-    "bestsellers",
-    "styling_story",
-    "tops_edit",
-    "trust_values",
+    "editorial_landing",
+    "tops_collection",
     "newsletter"
   ]
 }

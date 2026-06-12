@@ -1,5 +1,6 @@
 body {
   letter-spacing: 0;
+  background: #f6f6f3;
 }
 
 .header-wrapper,
@@ -9,19 +10,28 @@ body {
 }
 
 .announcement-bar__message {
-  min-height: 3.6rem;
-  font-size: 1.2rem;
+  min-height: 2.8rem;
+  font-size: 1rem;
   letter-spacing: 0.08rem;
   text-transform: uppercase;
 }
 
 .header {
-  padding-top: 1.6rem;
-  padding-bottom: 1.6rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 
 .header__heading-logo {
-  max-width: 16rem;
+  max-width: 12rem;
+}
+
+.header__menu-item,
+.header__icon,
+.menu-drawer__menu-item,
+.list-menu__item {
+  font-size: 1rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
 }
 
 .banner--large:not(.banner--adapt) {
@@ -57,6 +67,7 @@ button.shopify-payment-button__button--unbranded {
   font-weight: 700;
   letter-spacing: 0.08rem;
   text-transform: uppercase;
+  border-radius: 0;
 }
 
 .button--secondary {
@@ -80,15 +91,15 @@ button.shopify-payment-button__button--unbranded {
 .collection-list .card__content,
 .product-grid .card__content,
 .featured-collection .card__content {
-  padding-top: 1.2rem;
+  padding-top: 1rem;
 }
 
 .card-wrapper {
-  transition: transform 180ms ease, opacity 180ms ease;
+  transition: opacity 180ms ease;
 }
 
 .card-wrapper:hover {
-  transform: translateY(-0.3rem);
+  opacity: 0.72;
 }
 
 .card__media,
@@ -98,10 +109,13 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .card__heading {
+  font-size: 1.1rem;
   letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .price {
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
@@ -114,7 +128,8 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .quick-add__submit {
-  min-height: 4.2rem;
+  min-height: 3.8rem;
+  font-size: 1rem;
 }
 
 .image-with-text__content {
@@ -159,12 +174,15 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .collection-hero__title {
-  max-width: 12ch;
-  line-height: 0.95;
+  max-width: 9ch;
+  line-height: 0.8;
+  font-size: clamp(5rem, 12vw, 14rem);
+  text-transform: uppercase;
 }
 
 .collection-hero__description {
   max-width: 64rem;
+  text-transform: uppercase;
 }
 
 .product__title h1 {

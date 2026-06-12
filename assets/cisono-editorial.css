@@ -1,0 +1,199 @@
+.cisono-editorial {
+  min-height: 100vh;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  text-transform: uppercase;
+}
+
+.cisono-editorial a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.cisono-editorial__chrome,
+.cisono-editorial__meta,
+.cisono-editorial__discover,
+.cisono-editorial__manifesto > div,
+.cisono-editorial__product {
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.08rem;
+}
+
+.cisono-editorial__chrome {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background: rgba(var(--color-background), 0.86);
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.14);
+  backdrop-filter: blur(1.2rem);
+}
+
+.cisono-editorial__stage {
+  display: grid;
+  min-height: calc(100vh - 5.2rem);
+  padding: 2rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.14);
+}
+
+.cisono-editorial__meta,
+.cisono-editorial__manifesto > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cisono-editorial__hero {
+  display: grid;
+  grid-template-columns: minmax(22rem, 0.8fr) minmax(28rem, 1.2fr);
+  gap: 4rem;
+  align-items: end;
+  margin-top: 5rem;
+}
+
+.cisono-editorial__copy {
+  align-self: start;
+}
+
+.cisono-editorial__eyebrow {
+  max-width: 28rem;
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  letter-spacing: 0.08rem;
+}
+
+.cisono-editorial__copy h1 {
+  max-width: 8ch;
+  margin: 0;
+  font-size: clamp(5.6rem, 12vw, 18rem);
+  line-height: 0.78;
+  letter-spacing: 0;
+}
+
+.cisono-editorial__image {
+  justify-self: end;
+  width: min(56rem, 44vw);
+  border: 0.1rem solid rgba(var(--color-foreground), 0.14);
+}
+
+.cisono-editorial__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.cisono-editorial__discover {
+  align-self: end;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  width: min(34rem, 100%);
+  margin-top: 4rem;
+  padding: 1.2rem 0;
+  border-top: 0.1rem solid currentColor;
+  border-bottom: 0.1rem solid currentColor;
+}
+
+.cisono-editorial__manifesto {
+  display: grid;
+  grid-template-columns: 1fr minmax(32rem, 56rem);
+  gap: 4rem;
+  padding: 2rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.14);
+}
+
+.cisono-editorial__manifesto p {
+  max-width: 56rem;
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.cisono-editorial__products {
+  padding: 2rem;
+}
+
+.cisono-editorial__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.cisono-editorial__product {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: start;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.18);
+  padding-top: 1rem;
+}
+
+.cisono-editorial__product img {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.cisono-editorial__product-index {
+  grid-column: 1 / -1;
+}
+
+.cisono-editorial__product-price {
+  text-align: right;
+}
+
+@media screen and (max-width: 989px) {
+  .cisono-editorial__hero,
+  .cisono-editorial__manifesto {
+    grid-template-columns: 1fr;
+  }
+
+  .cisono-editorial__image {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .cisono-editorial__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .cisono-editorial__chrome,
+  .cisono-editorial__stage,
+  .cisono-editorial__manifesto,
+  .cisono-editorial__products {
+    padding: 1.4rem;
+  }
+
+  .cisono-editorial__hero {
+    gap: 2.8rem;
+    margin-top: 4rem;
+  }
+
+  .cisono-editorial__copy h1 {
+    font-size: clamp(5rem, 24vw, 9rem);
+  }
+
+  .cisono-editorial__manifesto p {
+    font-size: clamp(2.6rem, 9vw, 4.2rem);
+  }
+
+  .cisono-editorial__grid {
+    gap: 1.4rem;
+    margin-top: 3.2rem;
+  }
+}
